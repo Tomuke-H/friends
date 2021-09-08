@@ -1,54 +1,49 @@
 class Api::MoviesController < ApplicationController
+    before_action :set_friend
+    before_action :set_movie, only: [:show, :update, :destroy]
 
-before_action :set_friend
-before_action :set_movie, only: [:show, :update, :destroy]
-
-  def index
-    render json: @friend.movie.all
-  end
-
-  def create
-    @movie = @friend.new(movies_params)
-    if(@movie.save)
-      render json: @mvoie
-    else
-      render json: @movie.errors.full_messages, status: 422
+    def index
+        render json: @friend.movies.all
     end
-  end
 
-  def show
-    render json: @movie
-  end
-
-  def update
-    if(@movie.update(moviess_params))
-      render json: @movie
-    else
-      render json: @movie.errors.full_message, status: 422
+    def show
+        render json: @movie
     end
-  end
 
-  def destroy
-    render json: @movie.destroy
-  end
+    def create
+        @movie = @friend.movie.new(movies_params)
+        if(@movie.save)
+            render json: @movie
+        else
+            render json: @movie.errors.full_messages, status: 422
+        end
+    end
 
-  private
+    def update
+        if(@movie.update(movies_params))
+            render json: @movie
+        else
+            render json: @movie.errors.full_messages, status: 422
+        end
+    end
 
-  def movies_params
-    params.require(:movies).permit(:title, :genre)
-  end
+    def destroy
+        render json: @movie.destroy
+    end
 
-  def friends_param
-    params.require(:friends).permit(:name, :age, :sign, :mental_illness)
-  end
+    private
 
-  def set_friend
-    @friend = Friend.find(params[:id])
-  end
+    def movies_params
+        params.require(:movies).permit(:title, :genre)
+    end
 
+    def set_friend
+        @friend = Friend.find(params[:friend_id])
+    end
 
-  def set_movie
-    @movie = @friend.movies.find(params[:id])
-  end
+    def set_movie
+        @movie = @friend.movies.find(params[:id])
+    end
+
 
 end
