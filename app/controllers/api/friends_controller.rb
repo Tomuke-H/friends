@@ -1,46 +1,44 @@
 class Api::FriendsController < ApplicationController
 
-#stuff here...
-  before_action :set_friends
-  before_action :set_friends, only: [show, update, destroy]
+    before_action :set_friend, only: [:show, :update, :destroy]
 
-  def index
-    render json: Friend.all
-  end
-
-  def create 
-    @friend = Friend.new(friends_params)
-    if(@friends.save)
-      render json: @friend
-    else
-      render json: @friend.errors.full_messages, status: 422
-  end
-
-  def update
-    if(@friend.update(friends_params))
-      render json: @friends
-    else 
-      render json: @friend.errors.full_messages, status: 433
+    def index
+        render json: Friend.all
     end
-  end
 
-  def destroy
-      render json: @movie.destroy
-  end
-  
-  
-  privite
+    def show
+        render json: @friend
+    end
 
-  def movies_params
-    render
-  end
+    def create
+        @friend = Friend.new(friends_params)
+        if(@friend.save)
+            render json: @friend
+        else
+            render json: @friend.errors.full_messages, status: 422
+        end
+    end
 
-  def friends_params
-    params.require(:friends).permit(:name, :age, :sign, :mental_illness)
-  end
+    def update
+        if(@friend.update(friends_params))
+            render json: @friend
+        else
+            render json: @friend.errors.full_messages, status: 422
+        end
+    end
 
-  def set_friends
-    @friend = Friend.find(params[:id])
-  end
+    def destroy
+        render json: @movie.destroy
+    end
+
+    private
+
+    def friends_params
+        params.require(:friends).permit(:name, :age, :sign, :mental_illness)
+    end
+
+    def set_friend
+        @friend = Friend.find(params[:id])
+    end
 
 end
