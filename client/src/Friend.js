@@ -10,6 +10,7 @@ const Friend = ({friend, deleteFriend}) => {
             <p>{friend.mental_illness}</p>
             <button onClick={() => deleteFriend(friend.id)}>Delete</button>
             <Link to={`/friends/${friend.id}/edit`}>Edit</Link>
+            <Link to={`/friends/${friend.id}/movies`}>Favorite Movies</Link>
         </div>
     )
 }
