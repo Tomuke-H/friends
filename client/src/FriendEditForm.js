@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FriendEditForm = () => {
+const FriendEditForm = (props) => {
     return (
         <div>
             <h1>FriendEditForm</h1>
