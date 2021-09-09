@@ -28,7 +28,7 @@ class Api::FriendsController < ApplicationController
     end
 
     def destroy
-        render json: @movie.destroy
+        render json: @friend.destroy
     end
 
     private
