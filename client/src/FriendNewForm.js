@@ -10,7 +10,7 @@ const [mentalIllness, setMentalIllness] = useState("")
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            let res = await axios.post( "/api/friends/",
+                await axios.post( "/api/friends/",
                 {name: friendName,
                 age: friendAge,
                 sign: friendSign,
