@@ -25,11 +25,20 @@ const renderFriends = () => {
     return friends.map( friend => {
         return (
             <div key={friend.id}>
-                <Friend friend={friend} />
+                <Friend friend={friend} deleteFriend={deleteFriend} />
             </div>
         )
     })
 }
+
+const deleteFriend = async (id) => {
+    try {
+        let res = await axios.delete(`/api/friends/${id}`);
+        setFriends(friends.filter((f) => f.id !==id));
+    }   catch (err) {
+        console.log(err);
+    }
+};
 
 
     return (
