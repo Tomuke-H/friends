@@ -8,11 +8,11 @@ const [movieGenre, setMovieGenre] = useState("");
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            await axios.post( `/api/friends/${props.match.params.id}/movies/`),
+            await axios.post(`/api/friends/${props.match.params.id}/movies/`,
             {id: props.match.params.id,
             title: movieTitle,
-            genre: movieTitle
-        }
+            genre: movieGenre
+        })
             props.history.push(`/friends/${props.match.params.id}/movies/`);
         } catch (err) {
             console.log(err.respose)

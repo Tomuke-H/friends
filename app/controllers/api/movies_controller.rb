@@ -11,7 +11,7 @@ class Api::MoviesController < ApplicationController
     end
 
     def create
-        @movie = @friend.movie.new(movies_params)
+        @movie = @friend.movies.new(movies_params)
         if(@movie.save)
             render json: @movie
         else

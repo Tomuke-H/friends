@@ -16,7 +16,7 @@ const MovieEditForm = (props) => {
             setMovieGenre(res.data.genre)
             console.log(res.data)
         } catch(err) {
-            // alert("err")
+            console.log(err)
         }
     };
 
@@ -25,8 +25,7 @@ const MovieEditForm = (props) => {
         try {
             await axios.put(`/api/friends/${props.match.params.friend_id}/movies/${props.match.params.id}`,
             {
-                id: props.match.params.id,
-                title: setMovieTitle,
+                title: movieTitle,
                 genre: movieGenre
             });
             props.history.push(`/friends/${props.match.params.friend_id}/movies`);
