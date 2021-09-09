@@ -34,7 +34,7 @@ class Api::MoviesController < ApplicationController
     private
 
     def movies_params
-        params.require(:movies).permit(:title, :genre)
+        params.require(:movie).permit(:title, :genre)
     end
 
     def set_friend
