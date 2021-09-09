@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/friends/:id/edit" component={FriendEditForm}/>
           <Route exact path="/friends/:id/movies" component={Movies}/>
           <Route exact path="/friends/:id/movies/new" component={MovieNewForm}/>
-          <Route exact path="/movies/:id/edit" component={MovieEditForm}/>
+          <Route exact path="/friends/:friend_id/movies/:id/edit" component={MovieEditForm}/>
         </Switch>
       </div>
     </div>
