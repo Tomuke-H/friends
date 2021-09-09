@@ -51,7 +51,7 @@ const Movies = (props) => {
 
     return (
         <div>
-            <h1>{`${friend.name}'s Favorite Movies'`}</h1>
+            <h1>{`${friend.name}'s Favorite Movies`}</h1>
             <Link to={`/friends/${props.match.params.id}/movies/new`}>Add Movie</Link>
             <Link to='/friends'>Back to Friends</Link>
             {renderMovies()}
