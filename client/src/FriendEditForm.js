@@ -1,22 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const FriendEditForm = (props) => {
-const [friendName, setFriendName] = useState(props.friend.name);
-const [friendAge, setFriendAge] = useState(props.friend.age);
-const [friendSign, setFriendSign] = useState(props.friend.sign);
-const [mentalIllness, setMentalIllness] = useState(props.friend.mental_illness)
+    const [friendName, setFriendName] = useState('');
+    const [friendAge, setFriendAge] = useState('');
+    const [friendSign, setFriendSign] = useState('');
+    const [mentalIllness, setMentalIllness] = useState('')
 
 //put useEffect to get friend
+    useEffect(() => {
+        getFriend();
+    }, [])
+
+    const getFriend = async () => {
+        try {
+            let res = await axios.get(`/api/friends/${props.match.params.id}`)
+            setFriendName(res.data.name)
+            setFriendAge(res.data.age)
+            setFriendSign(res.data.sign)
+            setMentalIllness(res.data.mental_illness)
+            console.log(props.match.params.id)
+        }catch (err) {
+
+        }
+    }
 
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-                await axios.put( "/api/friends/",
-                {name: friendName,
-                age: friendAge,
-                sign: friendSign,
-                mental_illness: mentalIllness
+                await axios.put( `/api/friends/${props.match.params.id}`,
+                    {
+                    id: props.match.params.id,
+                    name: friendName,
+                    age: friendAge,
+                    sign: friendSign,
+                    mental_illness: mentalIllness
                 });
 
                 props.history.push("/friends");
@@ -45,6 +63,8 @@ const [mentalIllness, setMentalIllness] = useState(props.friend.mental_illness)
                     <p>Mental Illness:</p>
                     <input value={mentalIllness}
                     onChange={(e) => {setMentalIllness(e.target.value)}}/>
+
+                    <p>{props.match.params.id}</p>
 
                     <button>Submit!</button>
                 </form>

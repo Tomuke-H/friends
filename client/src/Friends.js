@@ -24,7 +24,7 @@ const renderFriends = () => {
    
     return friends.map( friend => {
         return (
-            <div>
+            <div key={friend.id}>
                 <Friend friend={friend} />
             </div>
         )
