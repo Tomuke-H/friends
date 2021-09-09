@@ -12,7 +12,7 @@ const submitHandler = () =>{
                 <p>Name:</p>
                 <input name="user[]"/>
                 <p>Age:</p>
-                <p></p>
+                <input age=""/>
                 <p>Sign:</p>
                 <input sign="user[]"/>
                 <p>Name:</p>
