@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';   
 
 const MovieEditForm = (props) => {
     const [movieTitle, setMovieTitle] = useState("");
@@ -40,6 +42,10 @@ const MovieEditForm = (props) => {
     return (
         <div style={{marginLeft: "20px"}}>
             <h1>MovieEditForm</h1>
+
+            <Button>
+                <Link to={`/friends/${props.match.params.friend_id}/movies/`}>Back to Movies</Link>
+            </Button>
 
             <form onSubmit={submitHandler}>
 

@@ -18,5 +18,5 @@ t.movies.create(title: "Star Wars", genre: "Sci-fi")
 k.movies.create(title: "The Shining", genre: "Thriller")
 k.movies.create(title: "Scott Pilgrim Vs. The World", genre: "Comedy")
 
-m.movies.create(title: "V for Vendetta", genre: "Action")
+m.movies.create(title: "Mad Max", genre: "Action")
 m.movies.create(title: "Pleasantville", genre: "Drama")

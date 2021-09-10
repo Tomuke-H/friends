@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const FriendEditForm = (props) => {
     const [friendName, setFriendName] = useState('');
@@ -47,6 +49,11 @@ const FriendEditForm = (props) => {
         return (
             <div style={{marginLeft: "20px"}}>
                 <h1>Edit Friend</h1>
+
+                    <Button>
+                        <Link to='/friends'>Back to Friends</Link>
+                    </Button>
+
                 <form onSubmit={submitHandler} >
                     <p style={{marginTop: "20px"}}>Name:</p>
                     <input value={friendName}
