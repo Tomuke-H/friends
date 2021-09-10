@@ -10,7 +10,7 @@ const FriendEditForm = (props) => {
 //put useEffect to get friend
     useEffect(() => {
         getFriend();
-    }, [])
+    }, []);
 
     const getFriend = async () => {
         try {
@@ -45,31 +45,33 @@ const FriendEditForm = (props) => {
 
 
         return (
-            <div>
-                <p>New Friend Form</p>
+            <div style={{marginLeft: "20px"}}>
+                <h1>Edit Friend</h1>
                 <form onSubmit={submitHandler} >
-                    <p>Name:</p>
+                    <p style={{marginTop: "20px"}}>Name:</p>
                     <input value={friendName}
                     onChange={(e) => {setFriendName(e.target.value)}}/>
 
-                    <p>Age:</p>
+                    <p style={{marginTop: "20px"}}>Age:</p>
                     <input value={friendAge}
                     onChange={(e) => {setFriendAge(e.target.value)}}/>
 
-                    <p>Sign:</p>
+                    <p style={{marginTop: "20px"}}>Sign:</p>
                     <input value={friendSign}
                     onChange={(e) => {setFriendSign(e.target.value)}}/>
 
-                    <p>Mental Illness:</p>
+                    <p style={{marginTop: "20px"}}>Mental Illness:</p>
                     <input value={mentalIllness}
                     onChange={(e) => {setMentalIllness(e.target.value)}}/>
 
-                    <p>{props.match.params.id}</p>
+                    <br/>
 
-                    <button>Submit!</button>
+                    <button style={{margin: "26px"}}>Submit!</button>
                 </form>
             </div>
         );
 };
+
+
 
 export default FriendEditForm;

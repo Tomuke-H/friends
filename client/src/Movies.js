@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Movie from './Movie';
 import { Link } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
 const Movies = (props) => {
     const [movies, setMovies] = useState([])
@@ -42,7 +43,7 @@ const Movies = (props) => {
 
     const deleteMovie = async (id) => {
         try {
-            let res = await axios.delete(`/api/friends/${props.match.params.id}/movies/${id}`);
+            await axios.delete(`/api/friends/${props.match.params.id}/movies/${id}`);
             setMovies(movies.filter((f) => f.id !==id));
         }   catch (err) {
             console.log(err);
@@ -50,10 +51,16 @@ const Movies = (props) => {
     };
 
     return (
-        <div>
+        <div style={{marginLeft: "20px"}}>
             <h1>{`${friend.name}'s Favorite Movies`}</h1>
+            <Button>
             <Link to={`/friends/${props.match.params.id}/movies/new`}>Add Movie</Link>
+            </Button>
+
+            <Button>
             <Link to='/friends'>Back to Friends</Link>
+            </Button>
+
             {renderMovies()}
         </div> 
     )

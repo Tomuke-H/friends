@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card } from 'semantic-ui-react'
 
 
 const Movie = ({ movie, deleteMovie}) => {
@@ -8,15 +8,8 @@ const Movie = ({ movie, deleteMovie}) => {
         <div>
             <Card style={{margin: "20px"}}>
             <Card.Content>
-                {/* <Image
-                floated='right'
-                size='mini'
-                /> */}
                 <Card.Header >{movie.title}</Card.Header>
                 <Card.Meta>{movie.genre}</Card.Meta>
-                {/* <Card.Description>
-                Has a problem with {`${friend.mental_illness}`}
-                </Card.Description> */}
             </Card.Content>
             <Card.Content extra>
                 <div className='ui two buttons'>

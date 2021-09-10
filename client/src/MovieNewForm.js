@@ -20,18 +20,24 @@ const [movieGenre, setMovieGenre] = useState("");
     };
 
     return (
-        <div>
+        <div style={{marginLeft: "20px"}}>
+
             <h1>Movie New Form</h1>
+
             <form onSubmit={submitHandler}>
-            <p>Title:</p>
+
+            <p style={{marginTop: "20px"}}>Title:</p>
             <input value={movieTitle}
+
             onChange={(e) => {setMovieTitle(e.target.value)}}/>
 
-            <p>Genre:</p>
+            <p style={{marginTop: "20px"}}>Genre:</p>
             <input value={movieGenre}
             onChange={(e) => {setMovieGenre(e.target.value)}}/>
 
-            <button>Submit!</button>
+            <br />
+
+            <button style={{marginTop: "26px"}}>Submit!</button>
             
             </form>
         </div>

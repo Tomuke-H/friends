@@ -38,15 +38,20 @@ const MovieEditForm = (props) => {
     
     
     return (
-        <div>
+        <div style={{marginLeft: "20px"}}>
             <h1>MovieEditForm</h1>
+
             <form onSubmit={submitHandler}>
-            <p>Movie:</p>
+
+            <p style={{marginTop: "20px"}}>Movie:</p>
             <input value={movieTitle} onChange={(e) => {setMovieTitle(e.target.value)}}/>
-            <p>Genre:</p>
+
+            <p style={{marginTop: "20px"}}>Genre:</p>
             <input value={movieGenre} onChange={(e) => {setMovieGenre(e.target.value)}}/>
+
             <br />
-            <button>Submit!</button>
+
+            <button style={{marginTop: "26px"}}>Submit!</button>
             </form>
         </div>
     )

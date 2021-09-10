@@ -34,7 +34,7 @@ const renderFriends = () => {
 
 const deleteFriend = async (id) => {
     try {
-        let res = await axios.delete(`/api/friends/${id}`);
+        await axios.delete(`/api/friends/${id}`);
         setFriends(friends.filter((f) => f.id !==id));
     }   catch (err) {
         console.log(err);
@@ -43,7 +43,7 @@ const deleteFriend = async (id) => {
 
 
     return (
-        <div>
+        <div style={{marginLeft: "20px"}}>
             <h1>Friends</h1>
             <Card.Group>
                 {renderFriends()}
